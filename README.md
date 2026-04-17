@@ -2,7 +2,23 @@
 
 Projeto full-stack com frontend React, backend FastAPI e persistencia local em JSON.
 
+## Pre-requisitos
+
+- **Node.js v22.12.0** (obrigatório — versão utilizada no desenvolvimento)
+- **PowerShell** para executar os comandos `make` no Windows
+
 ## Execucao local
+
+### Com Make (recomendado)
+
+> Execute os comandos abaixo no **PowerShell**.
+
+```bash
+make setup   # copia .env.example → .env (executar uma vez)
+make dev     # instala dependencias e sobe tudo
+```
+
+Outros comandos: `make dev-backend`, `make dev-frontend`, `make test`, `make clean`.
 
 ### Frontend + backend integrado
 
@@ -18,12 +34,10 @@ Projeto full-stack com frontend React, backend FastAPI e persistencia local em J
 
 ### Backend isolado
 
-1. Ative o ambiente virtual Python:
-   `.\.venv\Scripts\activate`
-2. Acesse a pasta do backend:
+1. Acesse a pasta do backend:
    `cd backend`
-3. Inicie a API:
-   `uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload`
+2. Inicie a API:
+   `..\.venv\Scripts\python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload`
 
 ## Banco local em JSON
 
@@ -36,10 +50,12 @@ Projeto full-stack com frontend React, backend FastAPI e persistencia local em J
 
 ## Testes automatizados
 
-1. Ative o ambiente virtual:
-   `.\.venv\Scripts\activate`
-2. Execute os testes do backend:
-   `python -m pytest backend/tests -q`
+```bash
+make test
+```
+
+Ou manualmente:
+`python -m pytest backend/tests -q`
 
 ## Docker Compose
 
